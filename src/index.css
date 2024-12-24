@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@media (max-width: 600px) {
+  .MuiContainer-root {
+    padding: 16px;
+  }
+  
+  .MuiButton-root {
+    width: 100%;
+    margin: 8px 0;
+  }
+}
