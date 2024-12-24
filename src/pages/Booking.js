@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Container, TextField, Button, MenuItem, Box } from '@mui/material';
-import { DatePicker } from '@mui/x-date-pickers';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 function Booking() {
   const [booking, setBooking] = useState({
@@ -15,17 +15,18 @@ function Booking() {
 
   return (
     <Container maxWidth="sm">
-      <Box sx={{ mt: 4 }}>
+      <Box sx={{ p: 3, display: 'flex', flexDirection: 'column', gap: 2 }}>
+        <h2>Make a Booking</h2>
         <DatePicker
-          label="Check-in Date"
+          label="Check-In Date"
           value={booking.checkIn}
-          onChange={(date) => setBooking({ ...booking, checkIn: date })}
+          onChange={(newValue) => setBooking({ ...booking, checkIn: newValue })}
           renderInput={(params) => <TextField {...params} fullWidth margin="normal" />}
         />
         <DatePicker
-          label="Check-out Date"
+          label="Check-Out Date"
           value={booking.checkOut}
-          onChange={(date) => setBooking({ ...booking, checkOut: date })}
+          onChange={(newValue) => setBooking({ ...booking, checkOut: newValue })}
           renderInput={(params) => <TextField {...params} fullWidth margin="normal" />}
         />
         <TextField
@@ -40,7 +41,12 @@ function Booking() {
             <MenuItem key={num} value={num}>{num} Guests</MenuItem>
           ))}
         </TextField>
-        <Button fullWidth variant="contained" onClick={handleSearch} sx={{ mt: 2 }}>
+        <Button 
+          variant="contained" 
+          color="primary" 
+          onClick={handleSearch}
+          sx={{ maxWidth: 200 }}
+        >
           Search Available Rooms
         </Button>
       </Box>
