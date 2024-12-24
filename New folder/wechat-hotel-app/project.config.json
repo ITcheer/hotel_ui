@@ -1,0 +1,15 @@
+{
+  "description": "WeChat Hotel App Project Configuration",
+  "miniprogramRoot": "./",
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": true,
+    "postcss": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.19.0",
+  "appid": "your-app-id",
+  "projectname": "wechat-hotel-app",
+  "condition": {}
+}

@@ -1,0 +1,7 @@
+<view class="header">
+  <text class="header-title">Hotel Booking</text>
+  <navigator url="/pages/index/index" class="header-link">Home</navigator>
+  <navigator url="/pages/booking/booking" class="header-link">Booking</navigator>
+  <navigator url="/pages/login/login" class="header-link">Login</navigator>
+  <navigator url="/pages/profile/profile" class="header-link">Profile</navigator>
+</view>

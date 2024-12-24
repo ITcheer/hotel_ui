@@ -1,0 +1,16 @@
+<view class="login-container">
+  <form bindsubmit="onSubmit">
+    <view class="form-item">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required />
+    </view>
+    <view class="form-item">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
+    </view>
+    <button formType="submit">Login</button>
+  </form>
+  <view class="register-link">
+    <text>Don't have an account? <navigator url="/pages/register/register">Register here</navigator></text>
+  </view>
+</view>

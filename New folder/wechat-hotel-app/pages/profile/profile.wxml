@@ -1,0 +1,18 @@
+<view class="profile-container">
+  <view class="profile-header">
+    <text class="profile-title">User Profile</text>
+  </view>
+  <view class="profile-info">
+    <text class="profile-label">Name:</text>
+    <text class="profile-value">{{userName}}</text>
+  </view>
+  <view class="profile-info">
+    <text class="profile-label">Email:</text>
+    <text class="profile-value">{{userEmail}}</text>
+  </view>
+  <view class="profile-info">
+    <text class="profile-label">Phone:</text>
+    <text class="profile-value">{{userPhone}}</text>
+  </view>
+  <button class="edit-button" bindtap="editProfile">Edit Profile</button>
+</view>
