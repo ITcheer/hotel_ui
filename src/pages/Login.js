@@ -11,7 +11,7 @@ function Login() {
 
   return (
     <Container maxWidth="sm">
-      <Box component="form" onSubmit={handleSubmit} sx={{ mt: 4 }}>
+      <Box component="form" onSubmit={handleSubmit} sx={{ mt: 4, display: 'flex', flexDirection: 'column', gap: 2 }}>
         <TextField
           fullWidth
           margin="normal"
@@ -27,7 +27,7 @@ function Login() {
           value={credentials.password}
           onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
         />
-        <Button fullWidth variant="contained" type="submit" sx={{ mt: 2 }}>
+        <Button fullWidth variant="contained" type="submit" sx={{ mt: 2, bgcolor: '#1976d2' }}>
           Login
         </Button>
       </Box>

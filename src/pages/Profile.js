@@ -15,7 +15,7 @@ function Profile() {
 
   return (
     <Container maxWidth="sm">
-      <Box component="form" onSubmit={handleUpdate} sx={{ mt: 4 }}>
+      <Box component="form" onSubmit={handleUpdate} sx={{ mt: 4, display: 'flex', flexDirection: 'column', gap: 2 }}>
         <TextField
           fullWidth
           margin="normal"
@@ -39,7 +39,7 @@ function Profile() {
           value={profile.password}
           onChange={(e) => setProfile({ ...profile, password: e.target.value })}
         />
-        <Button fullWidth variant="contained" type="submit" sx={{ mt: 2 }}>
+        <Button fullWidth variant="contained" type="submit" sx={{ mt: 2, bgcolor: '#1976d2' }}>
           Update Profile
         </Button>
       </Box>
