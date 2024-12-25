@@ -27,11 +27,13 @@ function App() {
             overflow: 'hidden',
             position: 'relative',
             background: '#ffffff',
-            display: 'flex',
-            flexDirection: 'column'
           }}>
-            <div style={{ flex: 1, overflowY: 'hidden' }}>
-              <Navbar />
+            <div style={{ 
+              height: '100%',
+              paddingBottom: '65px',
+              boxSizing: 'border-box',
+              overflowY: 'auto'
+            }}>
               <Routes>
                 <Route path="/" element={<Login />} />
                 <Route path="/login" element={<Login />} />
@@ -42,8 +44,8 @@ function App() {
                 <Route path="/room/:id" element={<RoomDetail />} />
                 <Route path="/room-detail" element={<RoomDetail />} />
               </Routes>
-              <BottomNav />
             </div>
+            <Navbar />
           </div>
         </div>
       </BrowserRouter>

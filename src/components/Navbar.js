@@ -1,19 +1,45 @@
-import { AppBar, Toolbar, Button } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { BottomNavigation, BottomNavigationAction } from '@mui/material';
+import { useLocation, useNavigate } from 'react-router-dom';
+import HomeIcon from '@mui/icons-material/Home';
+import BookIcon from '@mui/icons-material/Book';
+import HotelIcon from '@mui/icons-material/Hotel';
+import PaymentIcon from '@mui/icons-material/Payment';
 import '../styles/Navbar.css';
 
 function Navbar() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   return (
-    <AppBar position="static" color="primary" className="navbar-container">
-      <Toolbar sx={{ display: 'flex', justifyContent: 'space-around' }}>
-        <Button color="inherit" component={Link} to="/login">Login</Button>
-        <Button color="inherit" component={Link} to="/profile">Profile</Button>
-        <Button color="inherit" component={Link} to="/booking">Booking</Button>
-        <Button color="inherit" component={Link} to="/room-detail">Rooms</Button>
-        <Button color="inherit" component={Link} to="/calendar">Calendar</Button>
-        <Button color="inherit" component={Link} to="/payment">Payment</Button>
-      </Toolbar>
-    </AppBar>
+    <BottomNavigation
+      value={location.pathname}
+      onChange={(event, newValue) => {
+        navigate(newValue);
+      }}
+      className="bottom-nav"
+      showLabels
+    >
+      <BottomNavigationAction
+        label="Home"
+        value="/login"
+        icon={<HomeIcon />}
+      />
+      <BottomNavigationAction
+        label="Booking"
+        value="/booking"
+        icon={<BookIcon />}
+      />
+      <BottomNavigationAction
+        label="Rooms"
+        value="/calendar"
+        icon={<HotelIcon />}
+      />
+      <BottomNavigationAction
+        label="Payment"
+        value="/payment"
+        icon={<PaymentIcon />}
+      />
+    </BottomNavigation>
   );
 }
 

@@ -1,6 +1,7 @@
 import { Box, Container, Paper, Typography } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
 import PublicIcon from '@mui/icons-material/Public';
+import isaunionLogo from '../styles/isaunion.png';  // Add this import
 import '../styles/Login.css';
 
 function Login() {
@@ -14,16 +15,24 @@ function Login() {
         overflow: 'hidden',
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        position: 'relative'
       }}
     >
       <Box className="login-container">
+        <Box className="logo-container">
+          <img 
+            src={isaunionLogo} 
+            alt="ISA Union" 
+            className="logo-image"
+          />
+        </Box>
         <Box sx={{ textAlign: 'center' }}>
           <Typography 
             variant="h2" 
             className="hotel-title"
           >
-            Welcome to Hotel Orestra
+            Welcome to ISA Union
           </Typography>
           <Typography 
             variant="h6" 
@@ -46,7 +55,7 @@ function Login() {
                 Guest Login
               </Typography>
               <Typography variant="body1" color="text.secondary" className="card-description">
-                Book your stay and manage reservations
+                Book/manage   your reservations
               </Typography>
             </Box>
           </Paper>
