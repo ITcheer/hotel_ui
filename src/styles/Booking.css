@@ -74,59 +74,141 @@
   color: #1976d2;
 }
 
-.dial-container {
+.spinner-container {
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin: 32px 0;
+  gap: 24px;
 }
 
-.dial {
+.spinner {
   position: relative;
-  width: 120px;
-  height: 120px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  width: 80px;
+  height: 160px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(246, 248, 253, 0.5) 50%,
+    rgba(255, 255, 255, 0.9) 100%
+  );
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  cursor: pointer;
 }
 
-.dial-label {
+.spinner-value {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  font-weight: bold;
+  color: #2193b0;
+  background: white;
+  border-top: 1px solid rgba(33, 147, 176, 0.2);
+  border-bottom: 1px solid rgba(33, 147, 176, 0.2);
+}
+
+.spinner-label {
   text-align: center;
   margin-top: 8px;
   color: #2193b0;
   font-weight: 500;
 }
 
-.dial-value {
+.spinner-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+  color: #2193b0;
+}
+
+.spinner-arrows {
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.spinner-arrow {
+  color: #2193b0;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.spinner-arrow:hover {
+  opacity: 1;
+}
+
+/* Remove old dial styles */
+.dial-container, .dial, .dial-circle, .dial-inner, .dial-value, .dial-label {
+  display: none;
+}
+
+.controls-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 24px 0;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+}
+
+.number-control {
+  padding: 12px;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.number-control-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.number-icon {
+  color: #2193b0;
   font-size: 24px;
+}
+
+.number-label {
+  flex: 1;
+  font-weight: 500;
+  color: #333;
+}
+
+.number-value-container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.number-value {
+  min-width: 24px;
+  text-align: center;
   font-weight: bold;
   color: #2193b0;
 }
 
-.dial-circle {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: conic-gradient(from 0deg, #2193b0 0%, #6dd5ed 50%, #eee 50%, #eee 100%);
-  transform: rotate(0deg);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.dial-inner {
-  position: absolute;
-  width: 80%;
-  height: 80%;
-  background: white;
-  border-radius: 50%;
-  top: 10%;
-  left: 10%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+.arrow-button {
+  color: #2193b0 !important;
+  padding: 4px !important;
+  &:hover {
+    background-color: rgba(33, 147, 176, 0.1) !important;
+  }
 }
 
 .browse-button {
@@ -157,6 +239,12 @@
   animation: pulse 2s infinite ease-in-out;
 }
 
+/* Remove old spinner styles */
+.spinner-container, .spinner, .spinner-value, .spinner-label,
+.spinner-icon, .spinner-arrows, .spinner-arrow {
+  display: none;
+}
+
 /* Mobile optimizations */
 @media (max-width: 600px) {
   .date-pickers {
@@ -173,13 +261,27 @@
     padding: 16px;
   }
 
-  .dial-container {
-    flex-wrap: wrap;
+  .spinner-container {
     gap: 16px;
   }
 
-  .dial {
-    width: 100px;
-    height: 100px;
+  .spinner {
+    width: 60px;
+    height: 120px;
+  }
+
+  .spinner-value {
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+  }
+
+  .controls-container {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .number-control {
+    padding: 8px;
   }
 }

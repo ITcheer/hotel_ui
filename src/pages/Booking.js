@@ -1,40 +1,40 @@
 import React, { useState } from 'react';
-import { Container, Box, Typography, Paper } from '@mui/material';
+import { Container, Box, Typography, Paper, IconButton } from '@mui/material';
 import { LocalizationProvider, DatePicker } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import ChildCareIcon from '@mui/icons-material/ChildCare';
 import KingBedIcon from '@mui/icons-material/KingBed';
 import SearchIcon from '@mui/icons-material/Search';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import '../styles/Booking.css';
 
-function DialControl({ value, max, icon: Icon, label, onChange }) {
-  const percentage = (value / max) * 50;
-  
-  const handleClick = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const y = e.clientY - rect.top;
-    const height = rect.height;
-    const newValue = Math.round((y / height) * max);
-    onChange(Math.min(Math.max(1, newValue), max));
+function NumberControl({ value, max, min = 1, icon: Icon, label, onChange }) {
+  const handleIncrement = () => {
+    if (value < max) onChange(value + 1);
+  };
+
+  const handleDecrement = () => {
+    if (value > min) onChange(value - 1);
   };
 
   return (
-    <div className="dial">
-      <div 
-        className="dial-circle" 
-        onClick={handleClick}
-        style={{ 
-          background: `conic-gradient(from 0deg, #2193b0 0%, #6dd5ed ${percentage}%, #eee ${percentage}%, #eee 100%)`
-        }}
-      >
-        <div className="dial-inner">
-          <Icon sx={{ fontSize: 24, color: '#2193b0' }} />
-        </div>
-      </div>
-      <Typography className="dial-value">{value}</Typography>
-      <Typography className="dial-label">{label}</Typography>
-    </div>
+    <Box className="number-control">
+      <Box className="number-control-content">
+        <Icon className="number-icon" />
+        <Typography className="number-label">{label}</Typography>
+        <Box className="number-value-container">
+          <IconButton size="small" onClick={handleIncrement} className="arrow-button">
+            <KeyboardArrowUpIcon />
+          </IconButton>
+          <Typography className="number-value">{value}</Typography>
+          <IconButton size="small" onClick={handleDecrement} className="arrow-button">
+            <KeyboardArrowDownIcon />
+          </IconButton>
+        </Box>
+      </Box>
+    </Box>
   );
 }
 
@@ -71,22 +71,23 @@ function Booking() {
           </Box>
         </LocalizationProvider>
 
-        <Box className="dial-container">
-          <DialControl
+        <Box className="controls-container">
+          <NumberControl
             value={booking.adults}
             max={4}
             icon={PersonOutlineIcon}
             label="Adults"
             onChange={(value) => setBooking({ ...booking, adults: value })}
           />
-          <DialControl
+          <NumberControl
             value={booking.children}
             max={3}
+            min={0}
             icon={ChildCareIcon}
             label="Children"
             onChange={(value) => setBooking({ ...booking, children: value })}
           />
-          <DialControl
+          <NumberControl
             value={booking.beds}
             max={3}
             icon={KingBedIcon}
@@ -95,10 +96,7 @@ function Booking() {
           />
         </Box>
 
-        <button 
-          className="browse-button"
-          onClick={() => {/* handle search */}}
-        >
+        <button className="browse-button">
           <SearchIcon sx={{ mr: 1 }} />
           Browse Rooms
         </button>
