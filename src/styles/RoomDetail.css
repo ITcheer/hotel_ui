@@ -1,0 +1,196 @@
+/* ...existing code... */
+
+.hotel-name {
+  color: #FFFDFD;
+  font-size: 14px;
+  font-family: Inter;
+  font-weight: 800;
+  word-wrap: break-word;
+}
+
+.location {
+  color: #FFFAFA;
+  font-size: 14px;
+  font-family: Inter;
+  font-weight: 600;
+  word-wrap: break-word;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 8px 0;
+}
+
+.price {
+  color: #FFFEFE;
+  font-size: 14px;
+  font-family: Inter;
+  font-weight: 800;
+  word-wrap: break-word;
+}
+.price span {
+  color: #FFFEFE;
+  font-size: 14px;
+  font-family: Inter;
+  font-weight: 600;
+  word-wrap: break-word;
+}
+
+.facilities-header h6 {
+  color: black;
+  font-size: 14px;
+  font-family: Inter;
+  font-weight: 600;
+  word-wrap: break-word;
+}
+.see-all {
+  color: #7E7B7B;
+  font-size: 12px;
+  font-family: Inter;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+
+.facility-label {
+  display: block;
+  color: #9C9A9A;
+  font-size: 11px;  /* Slightly smaller font */
+  font-family: Inter;
+  font-weight: 600;
+  word-wrap: break-word;
+  margin-top: 2px;  /* Reduce top margin */
+  width: 100%;
+  white-space: nowrap;  /* Prevent text wrapping */
+  width: auto;          /* Allow text to determine width */
+  overflow: visible;    /* Show full text */
+}
+
+.section-title {
+  color: black;
+  font-size: 15px;
+  font-family: Inter;
+  font-weight: 700;
+  word-wrap: break-word;
+  margin-bottom: 16px;
+}
+
+.rating .MuiTypography-root,
+.rating p {
+  color: #827E7E;
+  font-size: 11px;
+  font-family: Inter;
+  font-weight: 600;
+  word-wrap: break-word;
+}
+
+.description-text {
+  color: #646363;
+  font-size: 14px;
+  font-family: Inter;
+  font-weight: 600;
+  line-height: 1.8;
+  letter-spacing: 0.3px;
+  word-wrap: break-word;
+}
+
+.see-more {
+  color: #1976d2;
+  font-size: 11px;
+  font-family: Inter;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.22px;
+  word-wrap: break-word;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+/* ...existing code... */
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-image-container {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+
+.facilities-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 24px 0 16px;
+  padding: 0 8px;
+}
+
+.facilities-grid {
+  margin: 16px 0 24px;
+}
+
+.facility-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 4px;  /* Reduce gap between icon and text */
+  padding: 4px;  /* Reduce padding */
+  min-width: 65px;
+}
+
+.facility-icon {
+  width: 40px;  /* Make icons slightly smaller */
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;  /* Reduce padding */
+  border-radius: 12px;
+  background: #f8f9fa;
+  color: #1976d2;
+  box-shadow: none;
+  margin-bottom: 0;  /* Remove bottom margin */
+}
+
+.facility-icon svg {
+  color: #1976d2;
+  font-size: 24px;
+}
+
+.description-section {
+  padding: 0 8px;
+  margin-bottom: 80px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  background: #f8f9fa;
+  padding: 8px 16px;
+  border-radius: 8px;
+  width: fit-content;
+}
+
+.price-card {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  padding: 20px;
+  color: white;
+}
+
+.price-card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+/* ...existing code... */

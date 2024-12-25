@@ -1,59 +1,109 @@
 import React, { useState } from 'react';
-import { Container, TextField, Button, MenuItem, Box } from '@mui/material';
+import { Container, Box, Typography, Paper } from '@mui/material';
 import { LocalizationProvider, DatePicker } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import ChildCareIcon from '@mui/icons-material/ChildCare';
+import KingBedIcon from '@mui/icons-material/KingBed';
+import SearchIcon from '@mui/icons-material/Search';
+import '../styles/Booking.css';
+
+function DialControl({ value, max, icon: Icon, label, onChange }) {
+  const percentage = (value / max) * 50;
+  
+  const handleClick = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const y = e.clientY - rect.top;
+    const height = rect.height;
+    const newValue = Math.round((y / height) * max);
+    onChange(Math.min(Math.max(1, newValue), max));
+  };
+
+  return (
+    <div className="dial">
+      <div 
+        className="dial-circle" 
+        onClick={handleClick}
+        style={{ 
+          background: `conic-gradient(from 0deg, #2193b0 0%, #6dd5ed ${percentage}%, #eee ${percentage}%, #eee 100%)`
+        }}
+      >
+        <div className="dial-inner">
+          <Icon sx={{ fontSize: 24, color: '#2193b0' }} />
+        </div>
+      </div>
+      <Typography className="dial-value">{value}</Typography>
+      <Typography className="dial-label">{label}</Typography>
+    </div>
+  );
+}
 
 function Booking() {
   const [booking, setBooking] = useState({
     checkIn: null,
     checkOut: null,
-    guests: 1
+    adults: 2,
+    children: 0,
+    beds: 1
   });
 
-  const handleSearch = () => {
-    // Add search logic here
-  };
-
   return (
-    <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <Container maxWidth="sm">
-        <Box sx={{ p: 3, display: 'flex', flexDirection: 'column', gap: 2 }}>
-          <h2>Make a Booking</h2>
-          <DatePicker
-            label="Check-In Date"
-            value={booking.checkIn}
-            onChange={(newValue) => setBooking({ ...booking, checkIn: newValue })}
-            renderInput={(params) => <TextField {...params} fullWidth margin="normal" />}
+    <Container maxWidth="sm" className="booking-container">
+      <Typography variant="h4" className="booking-title">
+        Find Your Perfect Room
+      </Typography>
+
+      <Paper elevation={0} className="booking-form">
+        <LocalizationProvider dateAdapter={AdapterDateFns}>
+          <Box className="date-pickers">
+            <DatePicker
+              label="Check-In"
+              value={booking.checkIn}
+              onChange={(newValue) => setBooking({ ...booking, checkIn: newValue })}
+              slotProps={{ textField: { className: "date-input" } }}
+            />
+            <DatePicker
+              label="Check-Out"
+              value={booking.checkOut}
+              onChange={(newValue) => setBooking({ ...booking, checkOut: newValue })}
+              slotProps={{ textField: { className: "date-input" } }}
+            />
+          </Box>
+        </LocalizationProvider>
+
+        <Box className="dial-container">
+          <DialControl
+            value={booking.adults}
+            max={4}
+            icon={PersonOutlineIcon}
+            label="Adults"
+            onChange={(value) => setBooking({ ...booking, adults: value })}
           />
-          <DatePicker
-            label="Check-Out Date"
-            value={booking.checkOut}
-            onChange={(newValue) => setBooking({ ...booking, checkOut: newValue })}
-            renderInput={(params) => <TextField {...params} fullWidth margin="normal" />}
+          <DialControl
+            value={booking.children}
+            max={3}
+            icon={ChildCareIcon}
+            label="Children"
+            onChange={(value) => setBooking({ ...booking, children: value })}
           />
-          <TextField
-            select
-            fullWidth
-            margin="normal"
-            label="Number of Guests"
-            value={booking.guests}
-            onChange={(e) => setBooking({ ...booking, guests: e.target.value })}
-          >
-            {[1,2,3,4].map(num => (
-              <MenuItem key={num} value={num}>{num} Guests</MenuItem>
-            ))}
-          </TextField>
-          <Button 
-            variant="contained" 
-            color="primary" 
-            onClick={handleSearch}
-            sx={{ maxWidth: 200 }}
-          >
-            Search Available Rooms
-          </Button>
+          <DialControl
+            value={booking.beds}
+            max={3}
+            icon={KingBedIcon}
+            label="Beds"
+            onChange={(value) => setBooking({ ...booking, beds: value })}
+          />
         </Box>
-      </Container>
-    </LocalizationProvider>
+
+        <button 
+          className="browse-button"
+          onClick={() => {/* handle search */}}
+        >
+          <SearchIcon sx={{ mr: 1 }} />
+          Browse Rooms
+        </button>
+      </Paper>
+    </Container>
   );
 }
 

@@ -1,35 +1,72 @@
-import { useState } from 'react';
-import { TextField, Button, Box, Container } from '@mui/material';
+import { Box, Container, Paper, Typography } from '@mui/material';
+import PersonIcon from '@mui/icons-material/Person';
+import PublicIcon from '@mui/icons-material/Public';
+import '../styles/Login.css';
 
 function Login() {
-  const [credentials, setCredentials] = useState({ username: '', password: '' });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Add login logic here
-  };
-
   return (
-    <Container maxWidth="sm">
-      <Box component="form" onSubmit={handleSubmit} sx={{ mt: 4, display: 'flex', flexDirection: 'column', gap: 2 }}>
-        <TextField
-          fullWidth
-          margin="normal"
-          label="Username"
-          value={credentials.username}
-          onChange={(e) => setCredentials({ ...credentials, username: e.target.value })}
-        />
-        <TextField
-          fullWidth
-          margin="normal"
-          type="password"
-          label="Password"
-          value={credentials.password}
-          onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
-        />
-        <Button fullWidth variant="contained" type="submit" sx={{ mt: 2, bgcolor: '#1976d2' }}>
-          Login
-        </Button>
+    <Container 
+      maxWidth={false} 
+      disableGutters 
+      sx={{ 
+        height: '100%',
+        maxWidth: 'var(--container-width)',
+        overflow: 'hidden',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}
+    >
+      <Box className="login-container">
+        <Box sx={{ textAlign: 'center' }}>
+          <Typography 
+            variant="h2" 
+            className="hotel-title"
+          >
+            Welcome to Hotel Orestra
+          </Typography>
+          <Typography 
+            variant="h6" 
+            color="text.secondary"
+            className="subtitle"
+          >
+            Experience luxury and comfort at its finest
+          </Typography>
+        </Box>
+
+        <Box className="cards-container">
+          <Paper 
+            elevation={0}
+            className="login-card guest"
+            onClick={() => {/* handle guest login */}}
+          >
+            <PublicIcon className="icon" />
+            <Box sx={{ textAlign: 'center' }}>
+              <Typography variant="h5" className="card-title">
+                Guest Login
+              </Typography>
+              <Typography variant="body1" color="text.secondary" className="card-description">
+                Book your stay and manage reservations
+              </Typography>
+            </Box>
+          </Paper>
+
+          <Paper 
+            elevation={0}
+            className="login-card staff"
+            onClick={() => {/* handle staff login */}}
+          >
+            <PersonIcon className="icon" />
+            <Box sx={{ textAlign: 'center' }}>
+              <Typography variant="h5" className="card-title">
+                Staff Login
+              </Typography>
+              <Typography variant="body1" color="text.secondary" className="card-description">
+                Access administrative dashboard
+              </Typography>
+            </Box>
+          </Paper>
+        </Box>
       </Box>
     </Container>
   );

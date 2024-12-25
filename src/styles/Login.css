@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600&display=swap');
+
+:root {
+  --container-width: 390px;
+  --container-height: 844px;
+  --content-padding: 16px;
+  --card-max-width: 320px;
+  --card-height: 160px;
+  --spacing-unit: 8px;
+  --header-height: 120px;
+  --border-width: 1px; /* Border width for the container */
+}
+
+.login-container {
+  width: 100%;
+  max-width: var(--container-width);
+  height: calc(var(--container-height) - 80px); /* Account for nav bars */
+  padding: var(--content-padding);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.hotel-title {
+  font-family: 'Playfair Display', serif !important;
+  background: linear-gradient(45deg, #1976d2, #2e7d32);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: clamp(1.5rem, 4vw, 2.5rem) !important;
+  margin-bottom: calc(var(--spacing-unit) * 2) !important;
+  padding: 0 var(--content-padding);
+  width: 100%;
+  max-width: var(--card-max-width);
+  box-sizing: border-box;
+}
+
+.subtitle {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: clamp(0.875rem, 2vw, 1rem) !important;
+  margin-bottom: calc(var(--spacing-unit) * 4) !important;
+  padding: 0 var(--content-padding);
+}
+
+.cards-container {
+  width: 100%;
+  max-width: var(--card-max-width);
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing-unit) * 2);
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.login-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-unit);
+  cursor: pointer;
+  width: 100%;
+  height: var(--card-height);
+  padding: calc(var(--spacing-unit) * 2);
+  margin: 0;
+  border-radius: calc(var(--spacing-unit) * 2);
+  transition: all 0.3s ease;
+  min-height: fit-content; /* ensure content fits */
+  max-width: 100%; /* prevent overflow */
+  box-sizing: border-box;
+}
+
+.login-card.guest {
+  background-color: rgba(46, 125, 50, 0.04);
+  border: 1px solid rgba(46, 125, 50, 0.1);
+}
+
+.login-card.staff {
+  background-color: rgba(25, 118, 210, 0.04);
+  border: 1px solid rgba(25, 118, 210, 0.1);
+}
+
+.icon {
+  font-size: 40px;
+}
+
+.card-title {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 600 !important;
+}
+
+.card-description {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+@media (min-width: 900px) {
+  .cards-container {
+    gap: 2rem;
+    flex-direction: row;
+  }
+
+  .login-card {
+    padding: 2rem;
+    max-width: 400px;
+  }
+
+  .login-card:hover {
+    transform: translateY(-8px);
+  }
+
+  .login-card.guest:hover {
+    box-shadow: 0 10px 40px -10px rgba(46, 125, 50, 0.2);
+  }
+
+  .login-card.staff:hover {
+    box-shadow: 0 10px 40px -10px rgba(25, 118, 210, 0.2);
+  }
+}
+
+@media (max-width: 899px) {
+  .login-container {
+    padding: 1.5rem 1rem;
+    min-height: auto; /* changed from 100vh */
+    justify-content: flex-start;
+  }
+
+  .cards-container {
+    flex-direction: column;
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+    gap: 1rem;
+    margin-bottom: 2rem; /* add bottom margin for safety */
+    padding-bottom: 1rem; /* Added bottom padding to prevent overflow */
+  }
+
+  .login-card {
+    width: 100%;
+    max-width: 320px; /* Ensure cards fit within the container */
+    margin: 0 auto;
+    padding: 1rem; /* Reduced padding to save vertical space */
+    min-height: auto; /* ensure it takes content height */
+    margin-bottom: 1rem; /* Added margin between cards */
+  }
+
+  .hotel-title {
+    padding: 0 1rem;
+    font-size: 1.75rem !important; /* Reduced font size for better fit */
+  }
+
+  .login-card:hover {
+    transform: scale(1.02);
+  }
+}
+
+/* Add small screen specific adjustments */
+@media (max-width: 380px) {
+  .login-container {
+    padding: calc(var(--spacing-unit));
+  }
+
+  .cards-container {
+    gap: var(--spacing-unit);
+  }
+
+  .login-card {
+    padding: var(--spacing-unit);
+    height: calc(var(--card-height) - 20px);
+  }
+
+  .card-title {
+    font-size: 1rem !important;
+  }
+
+  .card-description {
+    font-size: 0.75rem !important;
+  }
+}
+
+/* Remove hover effects on mobile */
+@media (hover: none) {
+  .login-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}

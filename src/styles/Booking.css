@@ -1,0 +1,185 @@
+.booking-container {
+  padding: 24px 16px;
+  height: 100%;
+  background: linear-gradient(145deg, #f6f8fd, #ffffff);
+}
+
+.booking-title {
+  font-family: 'Playfair Display', serif !important;
+  background: linear-gradient(45deg, #2193b0, #6dd5ed);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 8px !important;
+  text-align: center;
+  font-size: 2rem !important;
+}
+
+.booking-subtitle {
+  color: #666;
+  text-align: center;
+  margin-bottom: 24px !important;
+}
+
+.booking-form {
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(10px);
+  padding: 24px;
+  border-radius: 24px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.date-pickers {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.date-input {
+  background: linear-gradient(145deg, #ffffff, #f6f8fd);
+  border-radius: 16px !important;
+  transition: transform 0.3s ease;
+}
+
+.date-input:hover {
+  transform: translateY(-2px);
+}
+
+.divider {
+  margin: 24px 0 !important;
+}
+
+.guests-section {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.guest-input {
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.beds-section {
+  margin-bottom: 32px;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.bed-icon {
+  vertical-align: middle;
+  margin-left: 8px;
+  color: #1976d2;
+}
+
+.dial-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 32px 0;
+}
+
+.dial {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dial-label {
+  text-align: center;
+  margin-top: 8px;
+  color: #2193b0;
+  font-weight: 500;
+}
+
+.dial-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2193b0;
+}
+
+.dial-circle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, #2193b0 0%, #6dd5ed 50%, #eee 50%, #eee 100%);
+  transform: rotate(0deg);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dial-inner {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  background: white;
+  border-radius: 50%;
+  top: 10%;
+  left: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.browse-button {
+  background: linear-gradient(45deg, #2193b0, #6dd5ed) !important;
+  border-radius: 16px !important;
+  padding: 16px !important;
+  text-transform: none !important;
+  font-size: 1.2rem !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease !important;
+  margin-top: 24px !important;
+  box-shadow: 0 4px 15px rgba(33, 147, 176, 0.3) !important;
+}
+
+.browse-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(33, 147, 176, 0.4) !important;
+}
+
+/* Custom animations */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.pulse {
+  animation: pulse 2s infinite ease-in-out;
+}
+
+/* Mobile optimizations */
+@media (max-width: 600px) {
+  .date-pickers {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .guests-section {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .booking-form {
+    padding: 16px;
+  }
+
+  .dial-container {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .dial {
+    width: 100px;
+    height: 100px;
+  }
+}

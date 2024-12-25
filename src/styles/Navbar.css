@@ -1,0 +1,29 @@
+.navbar-container .MuiToolbar-root {
+  min-height: 64px;
+  padding: 0 20px;
+}
+
+.navbar-container .MuiButton-root {
+  text-transform: none;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 16px;
+}
+
+.navbar-container .MuiButton-root:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 600px) {
+  .navbar-container .MuiToolbar-root {
+    justify-content: space-between;
+    padding: 0 8px;
+  }
+  
+  .navbar-container .MuiButton-root {
+    padding: 6px 4px;
+    font-size: 11px;
+    min-width: auto;
+  }
+}

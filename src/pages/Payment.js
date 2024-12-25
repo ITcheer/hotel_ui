@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { TextField, Button, Container, Box } from '@mui/material';
+import { TextField, Button, Container, Box, Typography } from '@mui/material';
 
 function Payment() {
   const [payment, setPayment] = useState({
@@ -15,6 +15,7 @@ function Payment() {
 
   return (
     <Container maxWidth="sm">
+      <Typography variant="h4" sx={{ mt: 4 }}>Payment</Typography>
       <Box component="form" onSubmit={handlePayment} sx={{ mt: 4, display: 'flex', flexDirection: 'column', gap: 2 }}>
         <TextField
           fullWidth
