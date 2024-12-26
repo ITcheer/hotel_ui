@@ -59,14 +59,16 @@
   margin-bottom: calc(var(--spacing-unit) * 2) !important;
   padding: 0;
   width: 100%;
-  max-width: 260px;
+  max-width: 280px; /* Adjust max-width as needed */
   box-sizing: border-box;
-  margin-top: 300px !important; /* Moved lower */
+  margin-top: 300px !important; /* Adjust if necessary */
   line-height: 1;
   margin-left: auto;
   margin-right: auto;
-  white-space: nowrap; /* Prevent text wrapping */
-  text-align: center;
+  white-space: normal; /* Allow text to wrap */
+  text-align: center;  /* Ensure text is centered */
+  overflow: hidden;    /* Prevent overflow */
+  text-overflow: ellipsis; /* Add ellipsis if text is too long */
 }
 
 .subtitle {
@@ -103,10 +105,11 @@
   padding: calc(var(--spacing-unit) * 1.5); /* Reduced padding */
   margin: 0;
   border-radius: calc(var(--spacing-unit) * 2);
-  transition: all 0.3s ease;
+  transition: transform 0.4s ease;
   min-height: fit-content; /* ensure content fits */
   max-width: 280px; /* Reduced from 320px */
   box-sizing: border-box;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
 }
 
 .login-card.guest {
@@ -130,6 +133,10 @@
 
 .card-description {
   font-family: 'Poppins', sans-serif !important;
+}
+
+.login-card:hover {
+  transform: translateY(-8px);
 }
 
 /* Remove the media query that changes to row direction */

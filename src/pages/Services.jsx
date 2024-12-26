@@ -51,26 +51,28 @@ function Services() {
       <Box className="services-grid">
         {services.map((service, index) => (
           <Card key={index} className="service-card">
-            <Box className="service-card-media-container">
-              <CardMedia
-                component="img"
-                image={service.image}
-                alt={service.title}
-                className="service-image"
-              />
-              <Box className="service-highlight">
-                {service.highlight}
+            <Box sx={{ display: 'flex', flexDirection: 'row' }}>
+              <Box className="service-card-media-container" sx={{ flex: '0 0 200px' }}>
+                <CardMedia
+                  component="img"
+                  image={service.image}
+                  alt={service.title}
+                  className="service-image"
+                />
+                <Box className="service-highlight">
+                  {service.highlight}
+                </Box>
               </Box>
+              <CardContent className="service-content" sx={{ flex: 1 }}>
+                <Box className="service-icon-title">
+                  {service.icon}
+                  <Typography variant="h6">{service.title}</Typography>
+                </Box>
+                <Typography variant="body2" color="text.secondary">
+                  {service.description}
+                </Typography>
+              </CardContent>
             </Box>
-            <CardContent className="service-content">
-              <Box className="service-icon-title">
-                {service.icon}
-                <Typography variant="h6">{service.title}</Typography>
-              </Box>
-              <Typography variant="body2" color="text.secondary">
-                {service.description}
-              </Typography>
-            </CardContent>
           </Card>
         ))}
       </Box>

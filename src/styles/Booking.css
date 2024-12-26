@@ -22,7 +22,7 @@
 }
 
 .booking-form {
-  background: rgba(255, 255, 255, 0.9) !important;
+  background: rgba(255, 255, 255, 0.85) !important;
   backdrop-filter: blur(10px);
   padding: 24px;
   border-radius: 24px !important;
@@ -224,7 +224,7 @@
 }
 
 .browse-button:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px) scale(1.02);
   box-shadow: 0 6px 20px rgba(33, 147, 176, 0.4) !important;
 }
 
