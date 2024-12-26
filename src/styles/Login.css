@@ -55,13 +55,18 @@
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  font-size: clamp(1.5rem, 4vw, 2.5rem) !important;
+  font-size: clamp(1.1rem, 2.5vw, 1.8rem) !important; /* Reduced font size */
   margin-bottom: calc(var(--spacing-unit) * 2) !important;
-  padding: 0 var(--content-padding);
+  padding: 0;
   width: 100%;
-  max-width: var(--card-max-width);
+  max-width: 260px;
   box-sizing: border-box;
-  margin-top: 240px !important; /* Increased from 200px to accommodate larger logo */
+  margin-top: 300px !important; /* Moved lower */
+  line-height: 1;
+  margin-left: auto;
+  margin-right: auto;
+  white-space: nowrap; /* Prevent text wrapping */
+  text-align: center;
 }
 
 .subtitle {
@@ -77,10 +82,10 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: var(--card-max-width);
+  max-width: 280px; /* Reduced from 320px */
   display: flex;
-  flex-direction: column;
-  gap: 16px; /* Consistent gap between cards */
+  flex-direction: column;  /* Force vertical layout */
+  gap: 16px; /* Reduced gap between cards */
   padding: 0;
   margin: 0 auto;
   box-sizing: border-box;
@@ -94,13 +99,13 @@
   gap: var(--spacing-unit);
   cursor: pointer;
   width: 100%;
-  height: 140px; /* Fixed height for both cards */
-  padding: calc(var(--spacing-unit) * 2);
+  height: 120px; /* Reduced from 140px */
+  padding: calc(var(--spacing-unit) * 1.5); /* Reduced padding */
   margin: 0;
   border-radius: calc(var(--spacing-unit) * 2);
   transition: all 0.3s ease;
   min-height: fit-content; /* ensure content fits */
-  max-width: 100%; /* prevent overflow */
+  max-width: 280px; /* Reduced from 320px */
   box-sizing: border-box;
 }
 
@@ -127,10 +132,11 @@
   font-family: 'Poppins', sans-serif !important;
 }
 
+/* Remove the media query that changes to row direction */
 @media (min-width: 900px) {
   .cards-container {
     gap: 2rem;
-    flex-direction: row;
+    /* Remove flex-direction: row */
   }
 
   .login-card {

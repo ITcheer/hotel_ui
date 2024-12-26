@@ -33,10 +33,11 @@
   z-index: 2;
   margin-left: 16px;
   margin-right: 16px;
-  background: white;
-  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .room-name {
@@ -101,9 +102,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: white;
+  background: linear-gradient(145deg, #ffffff, #f6f8fd);
   border-radius: 12px;
   color: #2193b0;
+  box-shadow: 
+    4px 4px 8px rgba(0, 0, 0, 0.05),
+    -4px -4px 8px rgba(255, 255, 255, 0.9);
+  transition: transform 0.3s ease;
+}
+
+.facility-icon:hover {
+  transform: translateY(-2px);
 }
 
 .facility-label {
@@ -117,11 +126,15 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  background: #f8f9fa;
+  background: linear-gradient(145deg, #ffffff, #f6f8fd);
   padding: 8px 16px;
   border-radius: 20px;
   width: fit-content;
   margin: 16px 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    4px 4px 8px rgba(0, 0, 0, 0.05),
+    -4px -4px 8px rgba(255, 255, 255, 0.9);
 }
 
 .rating-value {

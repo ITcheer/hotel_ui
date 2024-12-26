@@ -1,0 +1,168 @@
+.services-container {
+  padding: 24px 16px;
+  max-width: 390px;
+  overflow-y: auto;     /* Enable scrolling */
+  -ms-overflow-style: none;  /* Hide scrollbar on IE/Edge */
+  scrollbar-width: none;     /* Hide scrollbar on Firefox */
+}
+
+.services-container::-webkit-scrollbar {
+  width: 0 !important;  /* Hide scrollbar on WebKit-based browsers */
+  display: none !important;
+}
+
+.services-container.MuiContainer-root {
+  overflow-y: auto !important;
+  -ms-overflow-style: none !important;  /* IE & Edge */
+  scrollbar-width: none !important;     /* Firefox */
+}
+.services-container.MuiContainer-root::-webkit-scrollbar {
+  width: 0 !important;
+  display: none !important;
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.services-title {
+  font-family: 'Playfair Display', serif;
+  background: linear-gradient(45deg, #2193b0, #6dd5ed);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 8px !important;
+}
+
+.services-subtitle {
+  color: #666;
+  font-family: 'Poppins', sans-serif;
+}
+
+.services-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.service-card {
+  padding: 20px;
+  text-align: center;
+  border-radius: 16px !important;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.8) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  animation: fadeInUp 0.5s ease-out;
+  animation-fill-mode: both;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.service-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08) !important;
+}
+
+.service-card:nth-child(1) { animation-delay: 0.1s; }
+.service-card:nth-child(2) { animation-delay: 0.2s; }
+.service-card:nth-child(3) { animation-delay: 0.3s; }
+.service-card:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.service-card-media-container {
+  position: relative;
+  height: 160px;
+}
+
+.service-image {
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.05);
+  transition: transform 0.6s ease-out;
+}
+
+.service-card:hover .service-image {
+  transform: scale(1);
+}
+
+.service-highlight {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(33, 147, 176, 0.85);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  backdrop-filter: blur(8px);
+  transform: translateY(-40px);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-highlight {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.service-content {
+  padding: 16px !important;
+}
+
+.service-icon-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.service-icon-title .MuiSvgIcon-root {
+  color: transparent;
+  background: linear-gradient(45deg, #2193b0, #6dd5ed);
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-icon-title .MuiSvgIcon-root {
+  transform: scale(1.2);
+}
+
+.service-icon-title h6 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  margin: 0;
+}
+
+.service-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+/* Add background patterns */
+.services-container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(33, 147, 176, 0.1) 0%, transparent 70%);
+  z-index: -1;
+  pointer-events: none;
+}

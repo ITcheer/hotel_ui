@@ -4,6 +4,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import BookIcon from '@mui/icons-material/Book';
 import HotelIcon from '@mui/icons-material/Hotel';
 import PaymentIcon from '@mui/icons-material/Payment';
+import BuildIcon from '@mui/icons-material/Build'; // Imported icon for Services
 import '../styles/Navbar.css';
 
 function Navbar() {
@@ -38,6 +39,11 @@ function Navbar() {
         label="Payment"
         value="/payment"
         icon={<PaymentIcon />}
+      />
+      <BottomNavigationAction
+        label="Services"
+        value="/services"
+        icon={<BuildIcon />} // Added Services icon
       />
     </BottomNavigation>
   );

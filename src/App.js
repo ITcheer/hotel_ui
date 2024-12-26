@@ -9,6 +9,7 @@ import Booking from './pages/Booking';
 import Calendar from './pages/Calendar';
 import Payment from './pages/Payment';
 import RoomDetail from './pages/RoomDetail';
+import Services from './pages/Services'; // Import Services page
 import './App.css';
 import './styles/RoomDetail.css';
 
@@ -16,7 +17,7 @@ function App() {
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <BrowserRouter>
-        <div className="App">
+        <div className="app">
           <div style={{ 
             width: '100%', 
             maxWidth: '390px', 
@@ -43,6 +44,7 @@ function App() {
                 <Route path="/payment" element={<Payment />} />
                 <Route path="/room/:id" element={<RoomDetail />} />
                 <Route path="/room-detail" element={<RoomDetail />} />
+                <Route path="/services" element={<Services />} /> {/* Added Services route */}
               </Routes>
             </div>
             <Navbar />
